@@ -1,9 +1,11 @@
 namespace SpriteKind {
     export const object = SpriteKind.create()
     export const BordMedNøgleLevel01 = SpriteKind.create()
+    export const dør_level01 = SpriteKind.create()
 }
 let spillerY = 0
 let spillerX = 0
+let Level = 1
 game.splash("LEVEL 1: slimklatsmannes skabelse")
 scene.setBackgroundImage(img`
     bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
@@ -196,21 +198,21 @@ let objectslevel01 = sprites.create(img`
     ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc...................cccccccccccccccccccccccccc
     ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc...................cccccccccccccccccccccccccc
     ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc...................cccccccccccccccccccccccccc
-    ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc...................cccccccccccccccccccccccccc
-    ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc...................cccccccccccccccccccccccccc
-    ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc...................cccccccccccccccccccccccccc
-    ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc...................cccccccccccccccccccccccccc
-    ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc...................cccccccccccccccccccccccccc
-    ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc...................cccccccccccccccccccccccccc
-    ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc...................cccccccccccccccccccccccccc
-    ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc...................cccccccccccccccccccccccccc
-    ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc...................cccccccccccccccccccccccccc
-    ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc...................cccccccccccccccccccccccccc
-    ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc...................cccccccccccccccccccccccccc
-    ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc...................cccccccccccccccccccccccccc
-    ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc...................cccccccccccccccccccccccccc
-    ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc...................cccccccccccccccccccccccccc
-    ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc...................cccccccccccccccccccccccccc
+    ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccfffffffffffffffffffffffffffcccccccccccccccccccccccccccc...................cccccccccccccccccccccccccc
+    ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccf111111111111ff11111111111fcccccccccccccccccccccccccccc...................cccccccccccccccccccccccccc
+    ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccf111116666111ff11666666611fcccccccccccccccccccccccccccc...................cccccccccccccccccccccccccc
+    ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccf116666666661ff11666666661fcccccccccccccccccccccccccccc...................cccccccccccccccccccccccccc
+    ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccf666666666666ff16666666666fcccccccccccccccccccccccccccc...................cccccccccccccccccccccccccc
+    ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccf666666666666ff66666666666fcccccccccccccccccccccccccccc...................cccccccccccccccccccccccccc
+    ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccf666666666666ff66666666666fcccccccccccccccccccccccccccc...................cccccccccccccccccccccccccc
+    ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccfffffffffffffffffffffffffffcccccccccccccccccccccccccccc...................cccccccccccccccccccccccccc
+    ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccfffffffffffffffffffffffffffcccccccccccccccccccccccccccc...................cccccccccccccccccccccccccc
+    ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccf666666666666ff66666666666fcccccccccccccccccccccccccccc...................cccccccccccccccccccccccccc
+    ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccf666666666666ff66666666666fcccccccccccccccccccccccccccc...................cccccccccccccccccccccccccc
+    ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccf666666666666ff66666666666fcccccccccccccccccccccccccccc...................cccccccccccccccccccccccccc
+    ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccf666666666666ff66666666666fcccccccccccccccccccccccccccc...................cccccccccccccccccccccccccc
+    ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccf666666666666ff66666666666fcccccccccccccccccccccccccccc...................cccccccccccccccccccccccccc
+    ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccfffffffffffffffffffffffffffcccccccccccccccccccccccccccc...................cccccccccccccccccccccccccc
     ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc...................cccccccccccccccccccccccccc
     ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc...................cccccccccccccccccccccccccc
     ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc...................cccccccccccccccccccccccccc
@@ -446,36 +448,85 @@ let dør_level01 = sprites.create(img`
     ................................................................
     ................................................................
     ................................................................
-    `, SpriteKind.Player)
+    `, SpriteKind.dør_level01)
 spiller.setPosition(83, 60)
 spiller.say("hvor er jeg!?", 2000)
 spiller.setFlag(SpriteFlag.StayInScreen, true)
 objectslevel01.setPosition(80, 80)
 Bord_med_en_nøgle_level01.setPosition(17, 70)
 dør_level01.setPosition(146, 32)
+let level01_er_info_oplyst = 0
+let level01_døradgang = 0
 forever(function () {
     controller.moveSprite(spiller, 70, 70)
 })
 forever(function () {
-    if (spiller.overlapsWith(objectslevel01)) {
-        spiller.setPosition(spillerX, spillerY)
-    } else if (spiller.overlapsWith(Bord_med_en_nøgle_level01)) {
-        spiller.setPosition(spillerX, spillerY)
-    } else if (spiller.overlapsWith(dør_level01)) {
-        if (true) {
-        	
+    if (Level == 1) {
+        if (spiller.overlapsWith(objectslevel01)) {
+            spiller.setPosition(spillerX, spillerY)
+        } else if (spiller.overlapsWith(Bord_med_en_nøgle_level01)) {
+            if (level01_er_info_oplyst == 0) {
+                game.splash("tryk A", "for at interagere")
+                level01_er_info_oplyst = 1
+            } else if (controller.A.isPressed()) {
+                level01_døradgang = 1
+                Bord_med_en_nøgle_level01.destroy()
+                Bord_med_en_nøgle_level01 = sprites.create(img`
+                    ffffffffff......................
+                    fbdddddd1f......................
+                    fbdddddd1f......................
+                    fbdddddd1f......................
+                    fbdddddd1f......................
+                    fbdddddd1f......................
+                    fbdddddd1f......................
+                    fbdddddd1f......................
+                    fbdddddd1f......................
+                    fbdddddd1f......................
+                    fbdddddd1f......................
+                    fbdddddd1f......................
+                    fbdddddd1f......................
+                    fbdddddd1f......................
+                    fbdddddd1f......................
+                    fbdddddd1f......................
+                    fbdddddd1f......................
+                    fbdddddd1f......................
+                    fbdddddd1f......................
+                    fbdddddd1f......................
+                    fbdddddd1f......................
+                    fbdddddd1f......................
+                    fbdddddd1f......................
+                    fbdddddd1f......................
+                    fbdddddd1f......................
+                    ffffffffff......................
+                    fbdddddd1f......................
+                    fbdffffd1f......................
+                    fbf....f1f......................
+                    fbf....f1f......................
+                    fbf....f1f......................
+                    .f......f.......................
+                    `, SpriteKind.BordMedNøgleLevel01)
+                Bord_med_en_nøgle_level01.setPosition(17, 70)
+            }
+            spiller.setPosition(spillerX, spillerY)
+        } else if (spiller.overlapsWith(dør_level01)) {
+            if (level01_døradgang == 0) {
+                game.splash("jeg har brug for en nøgle")
+            } else if (level01_døradgang == 1) {
+                if (controller.A.isPressed()) {
+                    Level = 2
+                }
+            }
+            spiller.setPosition(spillerX, spillerY)
         }
-        game.splash("jeg har brug for en nøgle")
-        spiller.setPosition(spillerX, spillerY)
-    }
-    if (!(spiller.overlapsWith(objectslevel01))) {
-        spillerX = spiller.x
-        spillerY = spiller.y
-    } else if (!(spiller.overlapsWith(Bord_med_en_nøgle_level01))) {
-        spillerX = spiller.x
-        spillerY = spiller.y
-    } else if (!(spiller.overlapsWith(dør_level01))) {
-        spillerX = spiller.x
-        spillerY = spiller.y
+        if (!(spiller.overlapsWith(objectslevel01))) {
+            spillerX = spiller.x
+            spillerY = spiller.y
+        } else if (!(spiller.overlapsWith(Bord_med_en_nøgle_level01))) {
+            spillerX = spiller.x
+            spillerY = spiller.y
+        } else if (!(spiller.overlapsWith(dør_level01))) {
+            spillerX = spiller.x
+            spillerY = spiller.y
+        }
     }
 })
